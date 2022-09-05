@@ -1,12 +1,12 @@
-package com.example.listas.adapter
+package com.example.listapelisconGET.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.listas.Film
-import com.example.listas.R
+import com.example.listapelisconGET.R
+import com.example.listapelisconGET.modelodatos.Result
 
-class FilmAdapter(private val filmList:List<Film>): RecyclerView.Adapter<FilmViewHolder>() {
+class FilmAdapter(var filmList:List<Result>): RecyclerView.Adapter<FilmViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FilmViewHolder {
         val layoutInflater=LayoutInflater.from(parent.context)
         return FilmViewHolder(layoutInflater.inflate(R.layout.item_film,parent,false))

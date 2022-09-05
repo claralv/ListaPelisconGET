@@ -1,4 +1,4 @@
-package com.example.listas
+package com.example.listapelisconGET
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4

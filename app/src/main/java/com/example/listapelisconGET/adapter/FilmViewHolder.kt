@@ -1,19 +1,20 @@
-package com.example.listas.adapter
+package com.example.listapelisconGET.adapter
 
 import android.view.View
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.example.listas.Film
-import com.example.listas.databinding.ItemFilmBinding
+import com.example.listapelisconGET.databinding.ItemFilmBinding
+import com.example.listapelisconGET.modelodatos.Result
 
 class FilmViewHolder(view: View):RecyclerView.ViewHolder(view) {
-    val binding = ItemFilmBinding.bind(view)
-    fun render(filmModel: Film)  {
+    private val binding = ItemFilmBinding.bind(view)
+    fun render(filmModel: Result)  {
+
         binding.FilmName.text= filmModel.title
-        binding.FilmDirector.text=filmModel.director
-        binding.FilmYear.text= filmModel.year.toString()
-        Glide.with(binding.FilmPhoto.context).load(filmModel.photo).into(binding.FilmPhoto)
+        //si observamos la respuesta de la petición en la pag de la api, la url de la imagen no está completa (poster_path), por lo que hay que concatenar lo que falta
+        Glide.with(binding.FilmPhoto.context).load("https://image.tmdb.org/t/p/w185/${filmModel.poster_path}").into(binding.FilmPhoto)
+
         //Configuramos el evento de hacer clic sobre una imagen:
         binding.FilmPhoto.setOnClickListener {Toast.makeText(binding.FilmPhoto.context,filmModel.title,Toast.LENGTH_LONG).show()}
         //Configuramos el evento de hacer clic sobre toda la celda:
